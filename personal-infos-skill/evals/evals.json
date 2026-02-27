@@ -1,0 +1,267 @@
+{
+  "skill_name": "personal-infos",
+  "notes": "Test fixtures are anonymized resumes in evals/fixtures/. Run eval 1 first, then eval 2 (eval 2 checks merging on top of eval 1's output).",
+  "scoring_rubric": {
+    "description": "Each missing item deducts 1 point. Three categories: tech_stack, impact, design_decision. A grader reads the output files and marks each item found or missing.",
+    "categories": ["tech_stack", "impact", "design_decision"]
+  },
+  "evals": [
+    {
+      "id": 1,
+      "name": "parse-backend-resume",
+      "prompt": "Here is my resume, please add everything to my personal-infos folder.",
+      "input_file": "evals/fixtures/resume_backend.md",
+      "expected_files_created": [
+        "basics.md",
+        "experience_acme_corp.md",
+        "experience_beta_analytics.md",
+        "project_gamma.md",
+        "project_delta_stream_analyzer.md"
+      ],
+      "assertions": [
+        {
+          "id": "basics_name",
+          "text": "basics.md contains the name 'Alex Kim'",
+          "check": "grep -i 'alex kim' basics.md"
+        },
+        {
+          "id": "basics_contact",
+          "text": "basics.md contains email, phone, LinkedIn, and GitHub",
+          "check": "basics.md has all four contact fields present"
+        },
+        {
+          "id": "basics_education_ms",
+          "text": "basics.md contains Master of Science degree and graduation date Dec 2022",
+          "check": "grep -i 'master' basics.md && grep '2022' basics.md"
+        },
+        {
+          "id": "basics_education_bs",
+          "text": "basics.md contains Bachelor of Science degree and graduation date Dec 2019",
+          "check": "grep -i 'bachelor' basics.md && grep '2019' basics.md"
+        },
+        {
+          "id": "acme_tech_typescript",
+          "text": "experience_acme_corp.md mentions TypeScript",
+          "check": "grep -i 'typescript' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_tech_nodejs",
+          "text": "experience_acme_corp.md mentions Node.js",
+          "check": "grep -i 'node' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_tech_sqs_or_kafka",
+          "text": "experience_acme_corp.md mentions SQS or Kafka (queue/messaging system)",
+          "check": "grep -iE 'sqs|kafka|queue' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_tech_fargate",
+          "text": "experience_acme_corp.md mentions AWS Fargate (cloud orchestration)",
+          "check": "grep -i 'fargate' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_tech_s3",
+          "text": "experience_acme_corp.md mentions S3 (object storage)",
+          "check": "grep -i 's3' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_tech_logging_metrics",
+          "text": "experience_acme_corp.md mentions structured logging and metrics collection",
+          "check": "grep -iE 'logging|metrics' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_impact_10x",
+          "text": "experience_acme_corp.md captures the 10x throughput improvement on DB",
+          "check": "grep -i '10x' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_impact_llm_proxy",
+          "text": "experience_acme_corp.md mentions LLM proxy with usage-based billing or throttling",
+          "check": "grep -iE 'llm|billing|throttl' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_design_producer_consumer",
+          "text": "experience_acme_corp.md captures the producer/consumer event-driven architecture",
+          "check": "grep -iE 'producer|consumer|event-driven' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_design_dead_letter",
+          "text": "experience_acme_corp.md captures dead-letter routing or retry strategies",
+          "check": "grep -iE 'dead.letter|retry' experience_acme_corp.md"
+        },
+        {
+          "id": "beta_tech_kubernetes",
+          "text": "experience_beta_analytics.md mentions Kubernetes",
+          "check": "grep -i 'kubernetes' experience_beta_analytics.md"
+        },
+        {
+          "id": "beta_tech_terraform",
+          "text": "experience_beta_analytics.md mentions Terraform",
+          "check": "grep -i 'terraform' experience_beta_analytics.md"
+        },
+        {
+          "id": "beta_tech_azure",
+          "text": "experience_beta_analytics.md mentions Microsoft Azure",
+          "check": "grep -i 'azure' experience_beta_analytics.md"
+        },
+        {
+          "id": "beta_impact_10pct",
+          "text": "experience_beta_analytics.md captures the ~10% backtesting accuracy improvement",
+          "check": "grep -iE '10%|10 percent|accuracy' experience_beta_analytics.md"
+        },
+        {
+          "id": "beta_design_compute_separation",
+          "text": "experience_beta_analytics.md captures the separation of compute-intensive services from user-facing APIs",
+          "check": "grep -iE 'separat|compute|user.facing' experience_beta_analytics.md"
+        },
+        {
+          "id": "gamma_tech_langchain",
+          "text": "project_gamma.md mentions LangChain",
+          "check": "grep -i 'langchain' project_gamma.md"
+        },
+        {
+          "id": "gamma_tech_chromadb",
+          "text": "project_gamma.md mentions ChromaDB",
+          "check": "grep -i 'chromadb' project_gamma.md"
+        },
+        {
+          "id": "gamma_tech_redis_celery",
+          "text": "project_gamma.md mentions Redis and Celery concurrency model",
+          "check": "grep -iE 'redis|celery' project_gamma.md"
+        },
+        {
+          "id": "gamma_impact_adoption",
+          "text": "project_gamma.md captures adoption scale (dozens of organizations or thousands of users)",
+          "check": "grep -iE 'dozens|thousands' project_gamma.md"
+        },
+        {
+          "id": "delta_tech_kafka_style",
+          "text": "project_delta_stream_analyzer.md mentions Kafka-style or event-driven messaging",
+          "check": "grep -iE 'kafka|event.driven' project_delta_stream_analyzer.md"
+        },
+        {
+          "id": "delta_tech_docker",
+          "text": "project_delta_stream_analyzer.md mentions Docker",
+          "check": "grep -i 'docker' project_delta_stream_analyzer.md"
+        },
+        {
+          "id": "delta_tech_graphql",
+          "text": "project_delta_stream_analyzer.md mentions GraphQL",
+          "check": "grep -i 'graphql' project_delta_stream_analyzer.md"
+        }
+      ],
+      "total_possible": 26
+    },
+    {
+      "id": 2,
+      "name": "parse-frontend-resume-and-merge",
+      "prompt": "Here is another version of my resume. Please add any new information to my personal-infos folder. Don't overwrite what's already there — only add what's new.",
+      "input_file": "evals/fixtures/resume_frontend.md",
+      "prerequisite": "Eval 1 must have run first. The personal-infos folder already has files from resume_backend.md.",
+      "expected_behavior": "Creates a new file for Headless CMS project. Adds frontend-focused bullets to experience_acme_corp.md and project_gamma.md. Does NOT overwrite existing content from eval 1.",
+      "assertions": [
+        {
+          "id": "headless_cms_file_created",
+          "text": "A new file for the Headless CMS project was created (it did not exist after eval 1)",
+          "check": "file matching 'headless' or 'cms' exists in personal-infos/"
+        },
+        {
+          "id": "headless_cms_tech_sanity",
+          "text": "Headless CMS file mentions Sanity CMS",
+          "check": "grep -i 'sanity' project_headless_cms*.md"
+        },
+        {
+          "id": "headless_cms_tech_groq",
+          "text": "Headless CMS file mentions GROQ queries",
+          "check": "grep -i 'groq' project_headless_cms*.md"
+        },
+        {
+          "id": "headless_cms_tech_portable_text",
+          "text": "Headless CMS file mentions Portable Text",
+          "check": "grep -i 'portable text' project_headless_cms*.md"
+        },
+        {
+          "id": "headless_cms_tech_sanity_studio",
+          "text": "Headless CMS file mentions Sanity Studio customization",
+          "check": "grep -i 'studio' project_headless_cms*.md"
+        },
+        {
+          "id": "headless_cms_tech_ssg_ssr",
+          "text": "Headless CMS file mentions SSG and SSR rendering patterns",
+          "check": "grep -iE 'ssg|ssr' project_headless_cms*.md"
+        },
+        {
+          "id": "headless_cms_impact_nontechnical",
+          "text": "Headless CMS file captures that non-technical users can manage content without code",
+          "check": "grep -iE 'non.technical|without code' project_headless_cms*.md"
+        },
+        {
+          "id": "headless_cms_impact_ai",
+          "text": "Headless CMS file mentions AI-assisted feature for generating summaries or metadata",
+          "check": "grep -iE 'ai.assisted|ai.generat|summari' project_headless_cms*.md"
+        },
+        {
+          "id": "headless_cms_design_schema",
+          "text": "Headless CMS file captures the modular Sanity schema design (hero, features, testimonials)",
+          "check": "grep -iE 'schema|modular|hero|testimonial' project_headless_cms*.md"
+        },
+        {
+          "id": "headless_cms_design_pipeline",
+          "text": "Headless CMS file captures content pipeline integration with Next.js SSG/SSR",
+          "check": "grep -iE 'pipeline|next.js' project_headless_cms*.md"
+        },
+        {
+          "id": "acme_preserved_10x",
+          "text": "experience_acme_corp.md STILL has the 10x DB throughput improvement from eval 1 (not overwritten)",
+          "check": "grep -i '10x' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_preserved_fargate",
+          "text": "experience_acme_corp.md STILL mentions Fargate from eval 1 (not overwritten)",
+          "check": "grep -i 'fargate' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_new_onboarding_wizard",
+          "text": "experience_acme_corp.md NOW also mentions the onboarding wizard (new from eval 2)",
+          "check": "grep -iE 'wizard|onboard' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_new_eliminated_walkthroughs",
+          "text": "experience_acme_corp.md NOW captures that 1-on-1 walkthroughs were eliminated",
+          "check": "grep -iE 'walkthrough|1.on.1|eliminating' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_new_mentoring",
+          "text": "experience_acme_corp.md NOW mentions mentoring junior engineers (new from eval 2)",
+          "check": "grep -iE 'mentor|junior' experience_acme_corp.md"
+        },
+        {
+          "id": "acme_new_frontend_perf",
+          "text": "experience_acme_corp.md NOW mentions memoization or state lifting for frontend performance (new from eval 2)",
+          "check": "grep -iE 'memoiz|state lift|effect chain' experience_acme_corp.md"
+        },
+        {
+          "id": "gamma_new_typescript_frontend",
+          "text": "project_gamma.md NOW mentions TypeScript frontend (new from eval 2)",
+          "check": "grep -i 'typescript' project_gamma.md"
+        },
+        {
+          "id": "gamma_new_role_based_auth",
+          "text": "project_gamma.md NOW mentions role-based auth flows (new from eval 2)",
+          "check": "grep -iE 'role.based|auth' project_gamma.md"
+        },
+        {
+          "id": "gamma_preserved_langchain",
+          "text": "project_gamma.md STILL has LangChain from eval 1 (not overwritten)",
+          "check": "grep -i 'langchain' project_gamma.md"
+        },
+        {
+          "id": "no_duplicate_acme_file",
+          "text": "Only ONE file exists for Acme Corp — no duplicates like experience_acme_corp_2.md",
+          "check": "count files matching 'acme' in personal-infos/ == 1"
+        }
+      ],
+      "total_possible": 20
+    }
+  ]
+}
