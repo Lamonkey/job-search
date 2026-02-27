@@ -137,6 +137,10 @@ The output must follow this exact format. The web renderer depends on the iconif
 ## Skills
 
 **[Category]:** [skill], **[key skill]**, [skill]
+
+**[Category]:** [skill], **[key skill]**, [skill]
+
+**[Category]:** [skill], **[key skill]**, [skill]
 ```
 
 **Formatting rules the renderer requires:**
@@ -146,7 +150,7 @@ The output must follow this exact format. The web renderer depends on the iconif
 - Section headers are `##` (h2)
 - Job titles, company names, and dates are all wrapped in `**bold**`
 - Bullets use `- ` prefix
-- Skills are `**Category:** item, item, **key item**, item` on a single line
+- Skills: each category is on its own line with a blank line between categories — `**Category:** item, item, **key item**, item` — never put all categories on a single line
 - In-progress projects are marked with `*(In Progress)*` after the title
 
 ---
