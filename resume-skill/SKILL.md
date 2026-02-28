@@ -177,14 +177,32 @@ Fix any critical missing keywords before delivering.
 
 ## Step 8: Save and deliver
 
-Save to the workspace folder as:
-`[firstname]_resume_[company].md`
+All output goes inside the `resumes/` folder in the working directory. Each job application gets its own subfolder named after the company (lowercase, hyphens for spaces). Inside that folder, save three files:
 
-Example: `jdoe_resume_acme.md`
+```
+resumes/
+└── [company-name]/
+    ├── job_description.md       ← the full JD the user provided, exactly as given
+    ├── [firstname]_resume_[company].md   ← the tailored resume
+    └── generated_[YYYY-MM-DD].md        ← a brief metadata file (see below)
+```
 
-Never overwrite a previously saved resume — each job gets its own file.
+**generated_[YYYY-MM-DD].md** should contain:
+```
+# Application — [Company Name]
+**Role:** [Job title]
+**Generated:** [YYYY-MM-DD]
+**Resume file:** [firstname]_resume_[company].md
+```
 
-Share the file link and briefly summarize:
+Get today's date with:
+```bash
+date +%Y-%m-%d
+```
+
+Never overwrite an existing folder — if a folder for that company already exists, append a number (e.g., `freewheel-2/`).
+
+Share the resume file link and briefly summarize:
 - The 3–4 most important tailoring decisions made
 - Any real gaps that remain (be honest — the user should know before applying)
 
