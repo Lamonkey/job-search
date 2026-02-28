@@ -73,6 +73,10 @@ Using the master artifact and the answers from Step 4, compose a fresh resume. D
 
 **Curate, don't dump.** Pick the most relevant experiences. 5 strong targeted bullets beat 10 generic ones. Cut anything that doesn't serve this role.
 
+**Relevance filter: only include bullets that speak to this job.** For every bullet you consider, ask: does this directly demonstrate a skill, tool, responsibility, or quality the JD asks for? If the answer is no, cut it — even if it's a strong accomplishment. A lean, laser-focused resume signals fit far better than a comprehensive one. This applies equally to experience and project sections.
+
+**Always open each role and project with a context-setting bullet.** The first bullet under every job and every project must orient the reader — what the company/product does, what your role was, and what scope you owned. Hiring managers skim; without that grounding sentence they don't know what to make of the specifics that follow. The remaining bullets then go deep on relevant accomplishments. Think of it as: first bullet = context, remaining bullets = evidence.
+
 **Mirror the JD's language.** If the JD says "scalable backend services", use that phrase. If it says "GROQ queries", say "GROQ queries". ATS systems match literally.
 
 **Reframe, don't fabricate.** If the user built "a data pipeline", and the JD wants "content pipelines", reframe it if the underlying work is the same. Never invent work that didn't happen.
