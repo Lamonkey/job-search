@@ -101,7 +101,7 @@ The output must follow this exact format. The web renderer depends on the iconif
 ---
 ---
 
-# [Full Name]
+# [First Name Last Name]
 
 <span class="iconify" data-icon="tabler:brand-github"></span> [github.com/username](https://github.com/username)
   : <span class="iconify" data-icon="tabler:phone"></span> [(+1) xxx-xxx-xxxx](tel:+1xxxxxxxxxx)
@@ -213,4 +213,5 @@ Share the resume file link and briefly summarize:
 - **The personal-infos folder is the only source.** Never pull content from a previous tailored resume. Always go back to the `personal-infos/` folder.
 - **Honest about gaps.** If experience is genuinely missing, say so. Help the user decide whether to build it (side project), address it (cover letter), or skip the role.
 - **The template is fixed.** The iconify spans and ` : ` syntax are required by the renderer. Never simplify them.
+- **Name formatting.** Use only the user's English name (e.g. "Jesse Chen"). Do not include Chinese characters or any non-English name variants, even if they appear in the personal-infos files.
 - **Every resume is a fresh composition.** Same artifact, different job = different resume. Don't reuse bullets wholesale — rethink what matters for each role.
