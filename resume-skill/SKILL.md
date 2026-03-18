@@ -12,6 +12,18 @@ The final output is a markdown file in a specific template format that the user 
 
 ---
 
+## Step 0: Clearance screening
+
+Before doing any work, scan the job description for security clearance requirements. Look for phrases like "TS/SCI", "Top Secret", "Secret clearance", "polygraph", "security clearance required", "must have active clearance", or "able to obtain a clearance" paired with "U.S. citizenship required."
+
+**The user does not have a security clearance and is not eligible for one.**
+
+If the role requires an active clearance or requires the candidate to obtain one, **stop immediately**. Tell the user the role requires a clearance they don't have and skip it. Do not proceed to gap analysis, do not write a resume. Just flag it and move on.
+
+If the clearance is listed as "nice to have" or "preferred" but not required, note it as a gap and proceed normally.
+
+---
+
 ## Step 1: Get the job description
 
 The user will paste a job description or share a URL. If it's a URL, use WebFetch or the browser to retrieve it. Extract:

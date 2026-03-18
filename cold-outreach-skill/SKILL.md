@@ -27,27 +27,41 @@ The difference between an email that gets a reply and one that gets trashed come
 
 **Show, don't tell.** Instead of listing skills, mention what you've built. One specific accomplishment is worth more than a bullet list of technologies.
 
+**Name-drop strategically.** Only mention a company name if it's recognizable enough to add credibility (e.g. Google, Stripe, a well-known startup). If the company name doesn't mean anything to the reader, skip it -describe what you did instead of where you did it. "I built observability tooling for a distributed backend" is stronger than "At [obscure company] I built observability tooling" because the reader's attention stays on the work, not on trying to place a name they don't recognize.
+
 **Make a small ask.** "Would you be up for a 15-minute chat this week?" is perfect. Don't ask them to forward your resume, sponsor you for a role, or do anything that requires effort on their part.
+
+## Step 0: Read the user's personal-infos folder
+
+**Before writing anything, always read all files in the `personal-infos/` folder.** This is the source of truth for the user's background -work experience, projects, education, and personal details. Read every file in the folder so you have the complete picture before selecting which accomplishments to highlight.
+
+The folder structure is:
+```
+personal-infos/
+├── basics.md                    ← name, email, phone, location, LinkedIn, GitHub, education
+├── experience_[company].md      ← one file per job
+├── project_[name].md            ← one file per project
+├── ai_workflow.md               ← how the user works with AI tools
+└── interview_answers.md         ← reusable behavioral answers with real stories
+```
+
+When choosing what to include in the email, scan ALL experience and project files for accomplishments that are most relevant to the target person's team and role. Don't limit yourself to one file -the best value proposition often combines experience from multiple jobs or projects.
 
 ## Information gathering
 
-Before writing the email, you need a few things from the user. Ask for whatever is missing:
+With the user's background already loaded from `personal-infos/`, you only need to gather what's missing. Ask for whatever you don't already have:
 
 1. **Who they're reaching out to** - the person's name, title, and company. If the user doesn't know the specific person, help them think about who the right target is (engineering manager > recruiter > VP).
 
 2. **Why this company** - what specifically interests them about this company? A product they use, a blog post they read, a project the team is working on, a recent funding round. If the user isn't sure, prompt them: "What caught your eye about this company? Do you use their product? Have you seen any blog posts or talks from their team?" If the user doesn't know much about the company, do some quick research yourself (check the company's website, engineering blog, recent news) and suggest specific angles they could reference. A cold email with no personalization is a wasted email - help them find the hook.
 
-3. **What the user brings** - their strongest accomplishment or most relevant experience. Push for specifics: not "I'm a senior engineer" but "I led the migration of our payment system to a microservices architecture, reducing downtime by 80%." Ask: "What's the one thing you've built or done that you're most proud of?" or "What would your mom brag about to her friends?"
+3. **What the user brings** - pull from `personal-infos/` to find the strongest accomplishment or most relevant experience for this specific outreach. Select the 1-2 things that best connect to what the target person's team works on. If nothing in the files feels relevant enough, ask the user for more context.
 
 4. **How they found the person** (optional but powerful) - through a blog post, a conference talk, a tweet, an open-source project, a mutual connection. This makes the opening feel natural rather than stalker-ish.
 
-5. **Any common ground** (optional) - shared school, conference, open-source project, city, interests.
+5. **Any common ground** (optional) - shared school, conference, open-source project, city, interests. Check `basics.md` for location and education that might overlap with the target person.
 
-If the user provides a resume, extract the strongest 1-2 accomplishments from it rather than trying to cram everything in.
-
-**Critical: never fabricate accomplishments.** If the user hasn't shared their background or accomplishments, ask them before writing the email. Use the questions above to draw it out of them. It's better to write "[YOUR STRONGEST ACCOMPLISHMENT - e.g., 'built a real-time dashboard processing 1M events/day']" as a clearly marked placeholder than to invent credentials. The user's real story, even if modest, will always be more compelling than a fabricated one.
-
-If the user genuinely can't think of anything, help them. Ask about side projects, open-source work, production incidents they've solved, migrations they've led, or systems they've improved. Everyone has *something* - it just might not feel impressive to them yet.
+**Critical: never fabricate accomplishments.** Only use details that actually appear in the `personal-infos/` files or that the user provides directly. It's better to write a clearly marked placeholder than to invent credentials. The user's real story, even if modest, will always be more compelling than a fabricated one.
 
 ## Email structure
 
