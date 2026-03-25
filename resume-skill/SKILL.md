@@ -97,11 +97,27 @@ Using the master artifact and the answers from Step 4, compose a fresh resume. D
 
 **Write a Summary** (2–3 lines) that positions the user directly for this role. Use the JD's language. No "I". No filler phrases like "passionate about" or "proven track record".
 
-**Bold 20–30 critical keywords** — technologies, methodologies, role-specific terms. Bold what a recruiter's eye should land on. Don't bold everything.
+**Bold for humans, not machines.** ATS reads plain text — it doesn't care about bold. Bold is for the hiring manager skimming. Only bold phrases that directly mirror a JD requirement, so the reader instantly sees the parallel between what the role needs and what you've done. Aim for ~15 bolded phrases across the whole resume, 1–2 per bullet max. Bold capability phrases ("content flagging and moderation dashboard", "optimized frontend performance"), not individual tech keywords ("React", "TypeScript"). If it reads like a highlighted textbook, there's too much.
 
 **Order sections strategically.** If a project directly demonstrates a key skill the JD asks for, put Projects before Experience. Otherwise keep Experience first.
 
 **Reorder skills categories** so the most relevant ones for this role appear first.
+
+### Wording style
+
+Write like an engineer describing their work to another engineer. Not like a recruiter, not like a marketing page.
+
+**Front-load ownership and scope, not technology.** Start bullets with what you owned or what you did, then let the tech stack flow naturally as context. "Owned frontend development across a React/Electron desktop app and a Next.js/TypeScript web platform" — not "Built and maintained a **scalable** desktop app (**Electron + React**)."
+
+**Show how things work, not just what was built.** "Designed an evaluation framework that decomposed LLM generation into measurable constraint checks" tells the reader about your engineering thinking. "Implemented an evaluation framework with constraint-based checks" just describes the feature.
+
+**Vary your verbs.** Don't start every bullet with "Built." Use: Owned, Designed, Implemented, Translated, Optimized, Led, Identified, Monitored. If "Built" appears more than twice on the whole resume, rewrite some.
+
+**Cut filler.** Remove decorative adjectives that don't add information: "content-rich", "learning-oriented", "clean and well-structured." If a word can be removed without losing meaning, remove it.
+
+**Keep sentences tight.** One idea per sentence. If a bullet runs past two lines, it's probably two bullets.
+
+**No company names in cover letters.** The user's previous employers (Nyquiste, Maple Growth, Solasphere) are not well-known. In cover letters, use "In my most recent role" or "Before that" instead. The resume has the company names for reference — the cover letter doesn't need them.
 
 ---
 
@@ -152,11 +168,11 @@ The output must follow this exact format. The web renderer depends on the iconif
 
 ## Skills
 
-**[Category]:** [skill], **[key skill]**, [skill]
+[Category]: [skill], [skill], [skill]
 
-**[Category]:** [skill], **[key skill]**, [skill]
+[Category]: [skill], [skill], [skill]
 
-**[Category]:** [skill], **[key skill]**, [skill]
+[Category]: [skill], [skill], [skill]
 ```
 
 **Formatting rules the renderer requires:**
@@ -166,7 +182,7 @@ The output must follow this exact format. The web renderer depends on the iconif
 - Section headers are `##` (h2)
 - Job titles, company names, and dates are all wrapped in `**bold**`
 - Bullets use `- ` prefix
-- Skills: each category is on its own line with a blank line between categories — `**Category:** item, item, **key item**, item` — never put all categories on a single line
+- Skills: each category is on its own line with a blank line between categories — `Category: item, item, item` — no bolding inside the skills section, just plain text. Never put all categories on a single line
 - In-progress projects are marked with `*(In Progress)*` after the title
 
 ---
