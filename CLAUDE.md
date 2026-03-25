@@ -13,6 +13,9 @@ When working in this folder, always read the following skill files before doing 
 3. **Cold Outreach Skill** — writes personalized cold outreach emails to hiring managers
    - File: `cold-outreach-skill/skill.md` (this is a zipped .skill package — extract with `unzip` to a temp directory first, then read `cold-outreach/SKILL.md`)
 
+4. **Interview Answer Skill** — helps answer application and interview questions by checking past answers first, then adapting or drafting new ones
+   - File: `interview-answer-skill/SKILL.md`
+
 ## Folder structure
 
 ```
@@ -21,5 +24,7 @@ job search/
 ├── personal-infos-skill/    ← skill for managing personal-infos/
 ├── resume-skill/            ← skill for generating tailored resumes
 ├── cold-outreach-skill/     ← skill for writing cold outreach emails
+├── interview-answer-skill/  ← skill for answering application/interview questions
+├── interview-questions/     ← library of past answers, one file per question
 └── resumes/                 ← generated resumes, one subfolder per company
 ```
