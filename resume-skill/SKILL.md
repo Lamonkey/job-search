@@ -75,6 +75,8 @@ Before writing, ask targeted questions about gaps. Use `AskUserQuestion` with mu
 
 For each gap that is genuinely missing (not just unwritten), be honest: if the user doesn't have the experience, say so. Suggest they build it (a side project, a weekend prototype) if the gap is bridgeable. Never add fabricated experience to the resume.
 
+**Do not write new information back to personal-infos during resume generation.** If the user reveals new experience in this step, use it in the resume but leave the personal-infos folder untouched. Writing back is handled by a separate skill (`personal-infos-sync-skill`) that runs after the resume is delivered.
+
 ---
 
 ## Step 5: Compose the tailored resume
@@ -97,7 +99,18 @@ Using the master artifact and the answers from Step 4, compose a fresh resume. D
 
 **Write a Summary** (2–3 lines) that positions the user directly for this role. Use the JD's language. No "I". No filler phrases like "passionate about" or "proven track record".
 
-**Bold for humans, not machines.** ATS reads plain text — it doesn't care about bold. Bold is for the hiring manager skimming. Only bold phrases that directly mirror a JD requirement, so the reader instantly sees the parallel between what the role needs and what you've done. Aim for ~15 bolded phrases across the whole resume, 1–2 per bullet max. Bold capability phrases ("content flagging and moderation dashboard", "optimized frontend performance"), not individual tech keywords ("React", "TypeScript"). If it reads like a highlighted textbook, there's too much.
+**Bold for the hiring manager, not the ATS machine.** ATS reads plain text — it doesn't care about bold. Bold exists so a hiring manager skimming your resume instantly sees the parallel between what the role needs and what you've done. Aim for ~15 bolded phrases across the whole resume, 1–2 per bullet max.
+
+**What to bold: outcomes, capabilities, and experience descriptions that mirror the JD's responsibilities.** The bolded phrase should read like a mini-answer to "have you done what we need?" Examples of good bolding:
+- "enabling **usage-based billing, request throttling, and metering**" (tells the reader what you built, not what tool you used)
+- "achieving **up to 10x throughput improvement** under high-volume workloads" (outcome the reader can evaluate)
+- "**shipped rapid MVPs to a test group, gathered data-driven feedback, and iterated on what resonated**" (mirrors an experimentation mindset the JD asks for)
+- "**owned the full debugging loop as a co-founder**" (mirrors an ownership requirement)
+- "**Reduced development cycle from 1 month to 2 weeks**" (measurable impact)
+
+**What NOT to bold: individual tech keywords or tool names.** Never bold things like **PostgreSQL**, **Alembic**, **Flask and React**, **FastAPI**, **RESTful API**, **Docker Compose**, **Django**. These are for the ATS to match in plain text and for the reader to absorb as context — they don't need visual emphasis. Bolding tech keywords makes the resume read like a highlighted keyword dump rather than a story about what you can do.
+
+**The test:** Read only the bolded phrases in order. If they read like a list of technologies, the bolding is wrong. If they read like a summary of what you accomplished and how you work, the bolding is right.
 
 **Order sections strategically.** If a project directly demonstrates a key skill the JD asks for, put Projects before Experience. Otherwise keep Experience first.
 
@@ -168,11 +181,11 @@ The output must follow this exact format. The web renderer depends on the iconif
 
 ## Skills
 
-[Category]: [skill], [skill], [skill]
+**[Category]:** [skill], [skill], [skill]
 
-[Category]: [skill], [skill], [skill]
+**[Category]:** [skill], [skill], [skill]
 
-[Category]: [skill], [skill], [skill]
+**[Category]:** [skill], [skill], [skill]
 ```
 
 **Formatting rules the renderer requires:**
@@ -182,7 +195,7 @@ The output must follow this exact format. The web renderer depends on the iconif
 - Section headers are `##` (h2)
 - Job titles, company names, and dates are all wrapped in `**bold**`
 - Bullets use `- ` prefix
-- Skills: each category is on its own line with a blank line between categories — `Category: item, item, item` — no bolding inside the skills section, just plain text. Never put all categories on a single line
+- Skills: each category is on its own line with a blank line between categories — `**Category:** item, item, item` — bold the category name, but not the individual skills. Never put all categories on a single line
 - In-progress projects are marked with `*(In Progress)*` after the title
 
 ---
@@ -236,6 +249,14 @@ Share the resume file link and briefly summarize:
 
 ---
 
+## Step 9: Engineering head review
+
+**After saving and delivering, always run the resume-review skill.** Read `resume-review-skill/SKILL.md` and follow its instructions to review the resume you just generated from an engineering head's perspective. This step is not optional — every resume gets reviewed before the user sends it out.
+
+The review will flag issues like too many bullets, bad bolding, buried leads, tech stack mismatches, and keyword stuffing. After presenting the feedback, ask if the user wants the changes applied. If yes, apply them and re-verify ATS keywords.
+
+---
+
 ## Notes
 
 - **The personal-infos folder is the only source.** Never pull content from a previous tailored resume. Always go back to the `personal-infos/` folder.
@@ -243,3 +264,4 @@ Share the resume file link and briefly summarize:
 - **The template is fixed.** The iconify spans and ` : ` syntax are required by the renderer. Never simplify them.
 - **Name formatting.** Use only the user's English name (e.g. "Jesse Chen"). Do not include Chinese characters or any non-English name variants, even if they appear in the personal-infos files.
 - **Every resume is a fresh composition.** Same artifact, different job = different resume. Don't reuse bullets wholesale — rethink what matters for each role.
+- **Never write back to personal-infos.** This skill only reads from personal-infos. If the user shares new experience during Step 4, use it for this resume but do not update the source files. The `personal-infos-sync-skill` handles that as a separate step after delivery.
