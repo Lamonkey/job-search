@@ -16,6 +16,15 @@ When working in this folder, always read the following skill files before doing 
 4. **Interview Answer Skill** — helps answer application and interview questions by checking past answers first, then adapting or drafting new ones
    - File: `interview-answer-skill/SKILL.md`
 
+5. **Resume Review Skill** — reviews every generated resume from an engineering head's perspective, flags issues a human reader would notice, and offers to apply fixes
+   - File: `resume-review-skill/SKILL.md`
+   - Auto-triggers as the final step of the resume-skill (Step 9)
+
+6. **Personal-Infos Sync Skill** — writes newly discovered experience back to `personal-infos/` after a resume is delivered
+   - File: `personal-infos-sync-skill/SKILL.md`
+   - Runs after resume delivery when the user revealed new details during gap-analysis Q&A
+   - The resume skill reads from personal-infos; this skill writes back to it — they never overlap
+
 ## Folder structure
 
 ```
@@ -23,6 +32,8 @@ job search/
 ├── personal-infos/          ← source of truth for experience, projects, basics
 ├── personal-infos-skill/    ← skill for managing personal-infos/
 ├── resume-skill/            ← skill for generating tailored resumes
+├── resume-review-skill/     ← skill for eng-head review of generated resumes
+├── personal-infos-sync-skill/ ← skill for syncing new info back to personal-infos/
 ├── cold-outreach-skill/     ← skill for writing cold outreach emails
 ├── interview-answer-skill/  ← skill for answering application/interview questions
 ├── interview-questions/     ← library of past answers, one file per question
