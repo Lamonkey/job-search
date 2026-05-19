@@ -18,12 +18,18 @@ When working in this folder, always read the following skill files before doing 
 
 5. **Resume Review Skill** — reviews every generated resume from an engineering head's perspective, flags issues a human reader would notice, and offers to apply fixes
    - File: `resume-review-skill/SKILL.md`
-   - Auto-triggers as the final step of the resume-skill (Step 9)
+   - Auto-triggers as Step 7 of the resume-skill (review before save)
 
 6. **Personal-Infos Sync Skill** — writes newly discovered experience back to `personal-infos/` after a resume is delivered
    - File: `personal-infos-sync-skill/SKILL.md`
    - Runs after resume delivery when the user revealed new details during gap-analysis Q&A
    - The resume skill reads from personal-infos; this skill writes back to it — they never overlap
+
+7. **Gap-Filling Skill** — designs buildable projects to fill skill gaps found during resume generation
+   - File: `gap-filling-skill/SKILL.md`
+   - Auto-triggers during resume-skill Step 4 Phase 2 when user confirms they lack a required skill
+   - Writes projects to `personal-infos/` as "In Progress"
+   - Logs tech stack pairing feedback to `gap-filling-skill/pairing-feedback.md` for iterative refinement
 
 ## Folder structure
 
@@ -34,6 +40,7 @@ job search/
 ├── resume-skill/            ← skill for generating tailored resumes
 ├── resume-review-skill/     ← skill for eng-head review of generated resumes
 ├── personal-infos-sync-skill/ ← skill for syncing new info back to personal-infos/
+├── gap-filling-skill/       ← skill for designing projects to fill skill gaps
 ├── cold-outreach-skill/     ← skill for writing cold outreach emails
 ├── interview-answer-skill/  ← skill for answering application/interview questions
 ├── interview-questions/     ← library of past answers, one file per question

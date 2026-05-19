@@ -142,6 +142,12 @@ If the user says yes:
 
 The goal is a resume that passes both the machine and the human. Fixing it for the human reader should not break ATS coverage, and recovering ATS coverage should not undo the human-reader fixes. If there's a genuine tension (a keyword can only be included in a way that sounds forced), flag it and let the user decide.
 
+## Logging the Review
+
+After the review is complete (whether or not fixes were applied), save the full review output to `resumes/[company]/review.md` — the same folder as the resume and job description. Just log what was said — the issues, the fixes suggested, and the verdict. No special formatting or metadata needed.
+
+---
+
 ## What this review is NOT
 
 - It is not a rewrite. The resume-skill already composed the content. This skill only critiques and adjusts.
