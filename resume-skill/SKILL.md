@@ -22,7 +22,7 @@ Before doing any work, scan the JD for three deal-breakers:
 
 **Security clearance** — Look for "TS/SCI", "Top Secret", "Secret clearance", "must have active clearance", "able to obtain a clearance." The user does not have a security clearance and is not eligible for one. If the role requires one, stop and tell the user to skip it.
 
-**Visa sponsorship** — Look for "must be authorized to work", "no sponsorship", "will not sponsor", "U.S. citizens only." If the role won't sponsor, flag it for the user so they know before investing time.
+**Visa sponsorship** — Look for "must be authorized to work", "no sponsorship", "will not sponsor", "U.S. citizens only", "not eligible for sponsorship", "cannot sponsor". The user is on an H-1B visa and requires employer sponsorship to work legally in the US. If the role explicitly states it will not sponsor, **stop immediately and do not generate a resume**. Tell the user the role doesn't offer sponsorship and recommend skipping it. Do not proceed unless the user explicitly says to continue anyway.
 
 **Likely PERM labor certification posting** — PERM postings are job ads filed by companies to prove no qualified U.S. worker is available, so they can sponsor a specific foreign worker they've already chosen. The requirements are intentionally designed to be unfillable. Flag and skip the role if the "minimum requirements" combine skills from two or more unrelated engineering specializations that no single candidate would realistically have. Common tells:
 - Niche proprietary tools alongside common web frameworks (e.g., Spirent + Django + React, or MATLAB + Rails + Kubernetes)
