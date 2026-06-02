@@ -150,6 +150,29 @@ resumes/[company-name]/
 
 Never overwrite an existing folder — append a number if needed.
 
+### Open it in the markdown-resume editor
+
+After the file is saved, load it straight into the local markdown-resume editor so the user can preview/print it — no copy-paste, no manual rename. The editor reads the file from disk via an `?import=` URL and names the resume after the company folder (or pass `&name=` to override).
+
+The editor lives at `/Users/jesse/Development/markdown-resume` and serves at `http://localhost:3000/markdown-resume/` when running. Construct the import URL with the **absolute** path to the saved `.md` (URL-encode both query values) and open it:
+
+```bash
+RESUME="$(pwd)/resumes/[company-name]/[firstname]_resume_[company].md"
+NAME="[Company] — [Role]"   # what the resume will be titled in the editor's list
+ENC() { python3 -c 'import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))' "$1"; }
+URL="http://localhost:3000/markdown-resume/?import=$(ENC "$RESUME")&name=$(ENC "$NAME")"
+open "$URL" 2>/dev/null || true
+echo "$URL"
+```
+
+Re-running with the same `&name=` overwrites that resume in place (no duplicates), so iterating on the same application just refreshes the editor.
+
+**Prerequisite:** the editor's dev server must be running. If `open` doesn't land on the resume, tell the user to start it once with `cd /Users/jesse/Development/markdown-resume && pnpm dev`, then give them the printed URL to click.
+
+Always print the URL even if you open it, so the user has a clickable fallback.
+
+### Summarize
+
 Share the resume file and briefly summarize: the 3–4 most important tailoring decisions, and any real gaps that remain.
 
 ---
