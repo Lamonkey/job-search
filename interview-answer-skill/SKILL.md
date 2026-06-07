@@ -29,12 +29,13 @@ If no match exists, move to Step 2.
 Ask the user for their raw thoughts. They'll usually give you a rough verbal dump of what they want to say. Your job is to clean it up while keeping their voice.
 
 Writing rules — these matter because the user has a specific style:
-- Use simple, direct language. Short sentences.
+- Use simple words. Short sentences. If a sentence feels long, split it.
+- No em dashes anywhere. Use a period or comma instead.
 - No marketing speak. No "I am passionate about" or "I am excited to" or "proven track record."
-- No em dashes used for dramatic effect. Periods and commas are fine.
 - Write like an engineer talking to another engineer, unless the context is clearly non-technical.
 - Keep answers concise. Most answers should be 2-4 sentences unless the question demands depth.
 - Don't invent facts. Only use specifics (numbers, dates, company names) that the user provides or that exist in their personal-infos/ folder.
+- Don't name companies that aren't well known. If the user worked at a startup or small company, replace the company name with "a previous job" or "my last role." Only name companies like Google, Meta, Amazon, Apple, Microsoft, or other names a reader would immediately recognize.
 
 ## Step 3: Save the answer
 
