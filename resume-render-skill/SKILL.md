@@ -26,6 +26,12 @@ pnpm render <abs-path-to-resume.md> [--font-size N] [--line-height N] [--pdf out
 - It **auto-starts the dev server** if it isn't running. First run after a fresh clone needs `pnpm install` and `pnpm build:pkg` once.
 - Use `--json` while searching (quiet, machine-readable). Pass `--pdf <path>` only on the final render.
 
+### If the renderer isn't available, skip gracefully
+
+This skill needs the markdown-resume repo (`/Users/jesse/Development/markdown-resume`) and a Chrome it can drive. In some environments — e.g. an automated/sandboxed run that only has the "job search" workspace mounted — neither is reachable.
+
+**Before rendering, check availability:** confirm the repo path exists (e.g. `test -d /Users/jesse/Development/markdown-resume`). If it doesn't exist, or the first `pnpm render` call errors because it can't reach the repo/Chrome, **do not fail the overall task** — skip rendering, leave the `.md` as the deliverable, and report: "PDF not rendered (renderer unavailable in this environment); the resume .md is saved." Then continue. The `.md` is the source of truth and can be rendered later in an interactive session on the Mac.
+
 ## Fixed defaults (do not change these to fit)
 
 These are already the renderer's defaults — `pnpm render <md>` with no flags uses them:
