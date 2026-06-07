@@ -150,11 +150,11 @@ resumes/[company-name]/
 
 Never overwrite an existing folder — append a number if needed.
 
-### Fit to one page and export the PDF (automatic)
+### Render to one page and export the PDF (automatic)
 
-After saving the `.md`, run the **resume-fit skill** (`resume-fit-skill/SKILL.md`) on it to produce a single-page, print-accurate PDF in the same folder. Read that skill and follow it — it drives the headless renderer in the markdown-resume repo, tunes line spacing and font size to one filled page (line-first, keeping the font large), and writes `resumes/[company-name]/[firstname]_resume_[company].pdf`.
+After saving the `.md`, run the **resume-render skill** (`resume-render-skill/SKILL.md`) on it to produce a single-page, print-accurate PDF in the same folder. Read that skill and follow it — it drives the headless renderer in the markdown-resume repo, tunes line spacing and font size to one filled page (line-first, keeping the font large), and writes `resumes/[company-name]/[firstname]_resume_[company].pdf`.
 
-This is **automatic** — don't ask first, just run it as the final delivery step. If the resume can't reach one page without dropping the font below the fit skill's floor, the fit skill will say so; trim the weakest bullet or project (Step 5 selection logic) and re-fit.
+This is **automatic** — don't ask first, just run it as the final delivery step. If the resume can't reach one page without dropping the font below the render skill's floor, the render skill will say so; trim the weakest bullet or project (Step 5 selection logic) and re-render.
 
 ### (Optional) Open in the editor for manual tweaks
 

@@ -1,15 +1,15 @@
 ---
-name: resume-fit
+name: resume-render
 description: >
-  Fits a tailored resume Markdown to exactly one filled page and exports a print-accurate PDF.
+  Renders a tailored resume Markdown to a single filled page and exports a print-accurate PDF.
   Use after a resume has been generated (e.g. by the resume skill) and saved to resumes/[company]/.
-  Drives the headless renderer in the markdown-resume editor, adjusting line spacing first and font
-  size second to land on a single, well-filled page, then writes the PDF next to the .md. Trigger
-  when the user says "fit this to one page", "make it one page", "render the resume", "export the
-  PDF", or after composing a resume that needs to be finalized for sending.
+  Drives the headless renderer in the markdown-resume editor, fitting the page by adjusting line
+  spacing first and font size second to land on a single, well-filled page, then writes the PDF
+  next to the .md. Trigger when the user says "render the resume", "fit this to one page", "make it
+  one page", "export the PDF", or after composing a resume that needs to be finalized for sending.
 ---
 
-# Resume Fit Skill
+# Resume Render Skill
 
 Take a finished resume Markdown file and produce a **single-page, well-filled, print-accurate PDF** by adjusting only line spacing and font size. The page layout (margins, fonts, paper) is fixed by the defaults below; this skill only tunes the fit.
 
